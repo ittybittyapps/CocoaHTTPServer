@@ -43,7 +43,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	return 0;
 }
 
-- (void)setOffset:(UInt64)offset
+- (void)setOffset:(UInt64)__attribute__((unused))offset
 {
 	// This method shouldn't be called since we're using a chunked response.
 	// We override it just to be safe.

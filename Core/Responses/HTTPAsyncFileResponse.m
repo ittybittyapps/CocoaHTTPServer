@@ -148,7 +148,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	HTTPLogVerbose(@"%@[%p]: Open fd[%i] -> %@", THIS_FILE, self, fileFD, filePath);
 	
 	readQueue = dispatch_queue_create("HTTPAsyncFileResponse", NULL);
-	readSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, fileFD, 0, readQueue);
+	readSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, (uintptr_t) fileFD, 0, readQueue);
 	
 	
 	dispatch_source_set_event_handler(readSource, ^{
@@ -220,8 +220,8 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 		{
 			HTTPLogVerbose(@"%@[%p]: Read %d bytes from file", THIS_FILE, self, result);
 			
-			readOffset += result;
-			readBufferOffset += result;
+			readOffset += (UInt64) result;
+			readBufferOffset += (UInt64) result;
 			
 			[self pauseReadSource];
 			[self processReadBuffer];

@@ -41,12 +41,12 @@
 
 - (BOOL)appendData:(NSData *)data
 {
-	return CFHTTPMessageAppendBytes(message, [data bytes], [data length]);
+	return (BOOL)CFHTTPMessageAppendBytes(message, [data bytes], (CFIndex)[data length]);
 }
 
 - (BOOL)isHeaderComplete
 {
-	return CFHTTPMessageIsHeaderComplete(message);
+	return (BOOL)CFHTTPMessageIsHeaderComplete(message);
 }
 
 - (NSString *)version

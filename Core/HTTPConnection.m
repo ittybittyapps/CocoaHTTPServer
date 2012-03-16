@@ -1967,7 +1967,7 @@ static NSMutableArray *recentNonces;
  * This method is called immediately prior to sending the response headers (for an error).
  * This method adds standard header fields, and then converts the response to an NSData object.
 **/
-- (NSData *)preprocessErrorResponse:(HTTPMessage *)response;
+- (NSData *)preprocessErrorResponse:(HTTPMessage *)response
 {
 	HTTPLogTrace();
 	
@@ -2483,7 +2483,7 @@ static NSMutableArray *recentNonces;
 /**
  * Sent after the socket has been disconnected.
 **/
-- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
 	HTTPLogTrace();
 	

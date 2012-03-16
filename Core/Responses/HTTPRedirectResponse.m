@@ -29,15 +29,15 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_OFF; // | HTTP_LOG_FLAG_TRACE;
 	return 0;
 }
 
-- (void)setOffset:(UInt64)offset
+- (void)setOffset:(UInt64)__attribute__((unused))offset
 {
 	// Nothing to do
 }
 
-- (NSData *)readDataOfLength:(NSUInteger)length
+- (NSData *)readDataOfLength:(NSUInteger)__attribute__((unused))length
 {
 	HTTPLogTrace();
-	
+
 	return nil;
 }
 

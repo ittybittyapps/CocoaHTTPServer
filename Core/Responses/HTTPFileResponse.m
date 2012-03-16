@@ -195,10 +195,9 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	else // (result > 0)
 	{
 		HTTPLogVerbose(@"%@[%p]: Read %d bytes from file", THIS_FILE, self, result);
-		
-		fileOffset += result;
-		
-		return [NSData dataWithBytes:buffer length:result];
+
+		fileOffset += (UInt64)result;
+		return [NSData dataWithBytes:buffer length:(NSUInteger)result];
 	}
 }
 
